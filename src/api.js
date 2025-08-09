@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE = 'http://127.0.0.1:8000/api';
+const API_BASE = 'https://drf-api-project-1fd7.onrender.com/api';
 
 const api = axios.create({
   baseURL: API_BASE,
@@ -9,10 +9,12 @@ const api = axios.create({
   },
 });
 
-// Add token to requests
+// Add token to requests (except for register and login)
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
-  if (token) {
+  const isAuthEndpoint = config.url === '/register/' || config.url === '/login/';
+  
+  if (token && !isAuthEndpoint) {
     config.headers.Authorization = `Token ${token}`;
   }
   return config;

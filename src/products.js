@@ -174,7 +174,7 @@ function Products() {
             }}>
               {product.image ? (
                 <img 
-                  src={product.image.startsWith('http') ? product.image : `http://127.0.0.1:8000${product.image}`} 
+                  src={product.image.startsWith('http') ? product.image : `https://drf-api-project-1fd7.onrender.com${product.image}`} 
                   alt={product.title}
                   style={{
                     width: '100%',

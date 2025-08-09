@@ -210,7 +210,7 @@ function OrderHistory() {
                         }}>
                           {item.product.image ? (
                             <img 
-                              src={`http://127.0.0.1:8000${item.product.image}`} 
+                              src={`https://drf-api-project-1fd7.onrender.com${item.product.image}`} 
                               alt={item.product.title}
                               style={{
                                 width: '100%',

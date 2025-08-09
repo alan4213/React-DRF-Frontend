@@ -23,7 +23,9 @@ function Login({ onLogin }) {
         setFormData({ username: '', password: '' });
       }
     } catch (error) {
-      alert(isLogin ? 'Login failed' : 'Registration failed');
+      console.error('Login error:', error.response?.data);
+      console.error('Status:', error.response?.status);
+      alert(isLogin ? `Login failed: ${error.response?.data?.detail || 'Unknown error'}` : 'Registration failed');
     }
   };
 
